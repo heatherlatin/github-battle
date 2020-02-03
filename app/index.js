@@ -1,9 +1,10 @@
 import React from 'react'
-import ReactDom from 'react-dom' // decoupled from react bc react isn't always rendered to a browser
+import ReactDom from 'react-dom'
 import './index.css'
 import Popular from './components/Popular'
 import Battle from './components/Battle'
-import { ThemeProvider } from '/contexts/theme'
+import { ThemeProvider } from './contexts/theme'
+import Nav from './components/Nav'
 
 class App extends React.Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class App extends React.Component {
 
     this.state = {
         theme: 'light',
-        toggletheme: () => {
+        toggleTheme: () => {
             this.setState(({ theme }) => ({
                 theme: theme === 'light' ? 'dark' : 'light'
             }))
@@ -21,9 +22,11 @@ class App extends React.Component {
     render() {
         return (
             <ThemeProvider value={this.state}>
-                <div className='container'>
-                    <Popular />
-                    <Battle />
+                <div className={this.state.theme}>
+                    <div className='container'>
+                        <Nav />
+                        <Battle />
+                    </div>
                 </div>
             </ThemeProvider>
         )
