@@ -11,7 +11,7 @@ export default function Nav () {
                         className='btn-clear'
                         onClick={toggleTheme}
                     >
-                        {theme === 'light' ? 'Light Mode' : 'Dark Mode'}
+                        {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
                     </button>
                 </nav>
             )}
